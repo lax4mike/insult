@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
+        <title>insult generator</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -16,12 +16,22 @@
         <!-- endbuild -->
     </head>
     <body>
+
+        
         <div class="container">
-            <span>You know what?  You're nothing but a</span>
+
+            <div>You know what?  You're nothing but a...</div>
+
+            <div id="insult"></div>
             
-            <div class="word1"></div>
-            <div class="word2"></div>
-            <div class="word3"></div> 
+            <script id="insult-template" type="text/x-handlebars-template">
+                <span class="word">{{word1}}</span>
+                <span class="word">{{word2}}</span>
+                <span class="word">{{word3}}</span>
+            </script>
+
+            <button id="refresh">Refresh</button>
+            
             
         </div>
 
@@ -38,6 +48,7 @@
         </script>
 
         <!-- build:js scripts/vendor.js -->
+        <script src="bower_components/handlebars/handlebars.js"></script>
         <script src="bower_components/jquery/jquery.min.js"></script>
         <script src="bower_components/underscore/underscore-min.js"></script>
         <script src="bower_components/backbone/backbone-min.js"></script>
@@ -47,8 +58,7 @@
         <script src="scripts/main.js"></script>
         <script src="scripts/templates.js"></script>
         <script src="scripts/models/insult-model.js"></script>
-        <script src="scripts/models/word-model.js"></script>
-        <script src="scripts/collections/word-collection.js"></script>
+        <script src="scripts/views/insult-view.js"></script>
         <!-- endbuild -->
 </body>
 </html>
