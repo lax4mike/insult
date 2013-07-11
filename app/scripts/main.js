@@ -24,7 +24,7 @@
                 insultModel.set(insultData).refresh();
 
                 // make the view and attach it to the element and model
-                new window.insult.Views.InsultView({ el: $("#insult"), model: insultModel });
+                new window.insult.Views.InsultView({ el: $("#insult-card"), model: insultModel });
 
                 // when the user clicks refresh, trigger the refresh event in the model
                 $("#refresh").click(function(){

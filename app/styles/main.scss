@@ -4,14 +4,15 @@
 @import "compass/css3/box-shadow";
 @import "compass";
 
-$background: #6493C4; 
+$background: #cbdaeb; 
 
 body {
     font-family: Trebuchet, sans-serif;
-    padding-top: 20px;
+    background: $background;
 }
 
-.container {
+.outer {
+	padding: 20px 5px;
 	text-align: center;
 }
 
@@ -39,7 +40,8 @@ body {
 		left: 0;
 		bottom: 0;
 		right: 0;
-		background: $background;
+		overflow: hidden;
+		
     	color: white;
 	    line-height: 5em;
 
