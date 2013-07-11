@@ -20,17 +20,27 @@
         
         <div class="container">
 
-            <div>You know what?  You're nothing but a...</div>
+            <div class="card-holder">
+                <div class="card">
+                    <table><tr><td>
+                        <div>You know what?  You're nothing but a...</div>
+                    
+                        <div id="insult">
+                            <script id="insult-template" type="text/x-handlebars-template">
+                                <span class="word">{{word1}}</span>
+                                <span class="word">{{word2}}</span>
+                                <span class="word">{{word3}}</span>
+                            </script>
+                        </div>
+                    </td></tr></table>
+                </div>
+                
+            </div>
 
-            <div id="insult"></div>
-            
-            <script id="insult-template" type="text/x-handlebars-template">
-                <span class="word">{{word1}}</span>
-                <span class="word">{{word2}}</span>
-                <span class="word">{{word3}}</span>
-            </script>
 
-            <button id="refresh">Refresh</button>
+            <br>
+
+            <button id="refresh" class='btn'>Come again?</button>
             
             
         </div>
