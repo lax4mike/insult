@@ -15,7 +15,7 @@
             var insultModel = new window.insult.Models.InsultModel();
 
             // load words
-            $.ajax("data/words.json", {
+            $.ajax("data/shakespearean-words.json", {
                 dataType: "json"
             })
             .done(function(insultData) {
