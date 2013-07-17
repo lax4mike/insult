@@ -3,7 +3,7 @@
 insult.Models.InsultModel = Backbone.Model.extend({
 
 	// words holds all the words that we loaded in from words.json, this doesn't change
-	// word1-3 get changed to a random work on refresh
+	// word1-3 get changed to a random word on refresh
 	defaults: {
 		words: [[],[],[]],
 		word1: "",

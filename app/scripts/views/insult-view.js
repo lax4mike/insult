@@ -20,32 +20,19 @@ insult.Views.InsultView = Backbone.View.extend({
     template: Handlebars.compile($("#insult-template").html()),
 
     render: function(){
-        // this.$el is the DOM element wrapped in jQuery.
-        // set the html to the template rendered with the model as context.
+        
+        var time = 500; // make sure timeout is the same as .card in css
 
-        this.$insultText.html( this.template(this.model) );
+        // do flip animation
+        this.$card.addClass('flip');
 
-        // var time = 300;
-
-        // this.$card.animate({
-        //     opacity: 0,
-        //     width: "150%",
-        //     height: "150%"
-        // }, time, function() {
-        //     // Animation complete.
-        //     this.$insultText.html( this.template(this.model) );
-
-        //     this.$card.css ({
-        //         width: "75%",
-        //         height: "75%"
-        //     }).animate({
-        //         opacity: 1,
-        //         width: "100%",
-        //         height: "100%"
-        //     }, time);
-
-        // }.bind(this));
-
+        // once the flip animation is done...
+        setTimeout(function(){
+            // set the html to the template rendered with the model as context.
+            this.$insultText.html( this.template(this.model) );
+            this.$card.removeClass('flip');
+        }.bind(this), time); 
+       
         
     }
 });

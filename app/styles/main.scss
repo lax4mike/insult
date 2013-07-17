@@ -1,10 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Acme);
 @import 'sass-bootstrap/lib/bootstrap';
-@import "compass/css3/border-radius";
-@import "compass/css3/box-shadow";
 @import "compass";
 
-$background: #cbdaeb; 
+$background: #f0edda; 
 
 body {
     font-family: Trebuchet, sans-serif;
@@ -16,42 +14,71 @@ body {
 	text-align: center;
 }
 
-
-// Do this http://css3playground.com/flip-card.php
 .card-holder {
 	display: inline-block;
 	position: relative;
 	min-height: 15em;
 	min-width: 30em;
+	@include perspective(600px);
 
 	.card {
-
-		> table {
-			height: 100%;
-			width: 100%;
-			td {
-				vertical-align: center;
-				text-align: center;
-			}
-		}
-
+		@include transition(.5s); /* make sure it's the same in insult-view.js */
+		@include transform-style(preserve-3d);
+		
 		position: absolute;
 		top: 0;
 		left: 0;
 		bottom: 0;
 		right: 0;
-		overflow: hidden;
 		
-    	color: white;
-	    line-height: 5em;
+		&.flip {
+			@include transform(rotateY(180deg));
 
-	    @include box-shadow(1px 1px 10px rgba(0,0,0,0.7));
-	    @include border-radius(10px);
+			.face {
+				z-index: 0;
+			}
+		}
+	
+		.face {
 
-		// needs latest Compass, add '@import "compass"' to your scss
-		background-color: #2D7BD6; // Old browsers
-		@include filter-gradient(#266FC3, #266FC3, horizontal); // IE6-9
-		@include background-image(linear-gradient(left bottom,  #266FC3 0%, #4288DA 25%, #4288DA 75%, #266FC3 100%));
+			> table {
+				height: 100%;
+				width: 100%;
+				td {
+					vertical-align: center;
+					text-align: center;
+				}
+			}
+
+			&.back {
+				z-index: 5;
+				@include transform(rotateY(180deg));
+			}
+			&.front {
+				z-index: 10;
+			}
+			
+			@include backface-visibility(hidden);
+			@include transform-style(preserve-3d);
+
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			overflow: hidden;
+
+	    	color: #3b3516;
+
+		    @include box-shadow(1px 1px 10px rgba(0,0,0,0.7));
+		    @include border-radius(10px);
+
+			$color1: #c9bb72;
+			$color2: #b1a043;
+			background-color: $color1; // Old browsers
+			@include filter-gradient($color2, $color2, horizontal); // IE6-9
+			@include background-image(linear-gradient(left bottom,  $color2 0%, $color1 25%, $color1 75%, $color2 100%));
+		}
 	}
 
 }
@@ -61,6 +88,8 @@ body {
 #insult {
 	font-family: 'Acme', Trebuchet, sans-serif;
     font-size: 2em;	
+    line-height: 1.2em;
+    padding-top: 1em;
 }
 
 #refresh {
