@@ -2,7 +2,7 @@
 @import 'sass-bootstrap/lib/bootstrap';
 @import "compass";
 
-$background: #f0edda; 
+$background: #e9f0fa; 
 
 body {
     font-family: Trebuchet, sans-serif;
@@ -69,13 +69,13 @@ body {
 			right: 0;
 			overflow: hidden;
 
-	    	color: #3b3516;
+	    	color: #eee;
 
 		    @include box-shadow(1px 1px 10px rgba(0,0,0,0.7));
 		    @include border-radius(10px);
 
-			$color1: #c9bb72;
-			$color2: #b1a043;
+			$color1: #4288DA;
+			$color2: #266FC3;
 			background-color: $color1; // Old browsers
 			@include filter-gradient($color2, $color2, horizontal); // IE6-9
 			@include background-image(linear-gradient(left bottom,  $color2 0%, $color1 25%, $color1 75%, $color2 100%));

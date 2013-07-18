@@ -30,23 +30,23 @@ insult.Views.InsultView = Backbone.View.extend({
     render: function(){
         var time = 1600; // make sure timeout is the same as .card in css
 
-        // do flip animation
+        // start flip animation
         this.$card.addClass('flip');
         
 
-        // once the flip animation is done...
+        // when flip animation 1/3 of the way through...
+        // set the html to the prerendered html.
         setTimeout(function(){
-            // set the html to the template rendered with the model as context.
             this.$insultText.html( this.rendered );
         }.bind(this), time/3); 
 
+
+        // when the animation is done...
+        // model refresh will set off a chain of events to prerender the next insult
         setTimeout(function(){
             this.$card.removeClass('flip');
-
-            // generate next insult so it's fast to load next time the card flips
             this.model.refresh();
         }.bind(this), time);
-       
-           
+         
     }
 });
