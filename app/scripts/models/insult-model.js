@@ -12,16 +12,19 @@ insult.Models.InsultModel = Backbone.Model.extend({
 	},
 
 	initialize: function(){
-		// bind this.refresh to the refresh event. 
-		// (the refresh event gets triggered else where, like on the button click)
-		this.on('refresh', this.refresh);
+		// change:words is fired when the words get set/changed
+		this.on('change:words', this.refresh);
 	},
 
 	refresh: function(){
+		
 		// get random words from this.words and put them in word1-3
 		w = this.get('words');
 		this.word1 = w[0][Math.floor(Math.random()*w[0].length)];
 		this.word2 = w[1][Math.floor(Math.random()*w[1].length)];
 		this.word3 = w[2][Math.floor(Math.random()*w[2].length)];
+
+		// let everyone else know we've refresh (the view)
+		this.trigger("refresh");
 	}
 });

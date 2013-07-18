@@ -21,15 +21,17 @@
             .done(function(insultData) {
 
                 // the data in the json corresponds directly with 'words' in the model
-                insultModel.set(insultData).refresh();
+                insultModel.set(insultData);
 
                 // make the view and attach it to the element and model
-                new window.insult.Views.InsultView({ el: $("#insult-card"), model: insultModel });
+                insultView = new window.insult.Views.InsultView({ el: $("#insult-card"), model: insultModel });
 
                 // when the user clicks refresh, trigger the refresh event in the model
                 $("#refresh").click(function(){
-                    insultModel.trigger('refresh');
-                });
+                    // insultModel.trigger('refresh');
+
+                    insultView.render();
+                }.bind(this));
 
 
             })
@@ -47,3 +49,5 @@
     });
 
 })(jQuery)
+
+var insultView;

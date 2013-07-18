@@ -22,7 +22,7 @@ body {
 	@include perspective(600px);
 
 	.card {
-		@include transition(.5s); /* make sure it's the same in insult-view.js */
+		
 		@include transform-style(preserve-3d);
 		
 		position: absolute;
@@ -32,7 +32,8 @@ body {
 		right: 0;
 		
 		&.flip {
-			@include transform(rotateY(180deg));
+			@include transition(1.6s); /* make sure it's the same in insult-view.js */
+			@include transform(rotateY(360deg));
 
 			.face {
 				z-index: 0;
@@ -89,7 +90,7 @@ body {
 	font-family: 'Acme', Trebuchet, sans-serif;
     font-size: 2em;	
     line-height: 1.2em;
-    padding-top: 1em;
+    padding: 1em;
 }
 
 #refresh {
