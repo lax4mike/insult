@@ -19,6 +19,11 @@ body {
 	position: relative;
 	min-height: 15em;
 	min-width: 30em;
+
+	@media (max-width: 30em) {
+		width: 100%;
+	} 
+
 	@include perspective(600px);
 
 	.card {
